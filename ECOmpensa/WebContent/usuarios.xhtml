@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://xmlns.jcp.org/jsf/html"
+ xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+ xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="_templatev.xhtml">
+	<ui:define name="titulo_pagina">Participantes</ui:define>
+
+
+<ui:define name="titulo">Participantes</ui:define>
+
+<ui:define name="conteudo">
+	<h:form>
+		<h:messages id="msg" class="alert alert-danger"/>
+		<div>
+		<legend>Dados do participante</legend>
+			
+		<div class="form-row">
+			<div class="form-group col-md-6">
+		
+				<h:outputText value="Nome" for="nome"/><font color="red">*</font>
+				<h:inputText class="form-control" id="nome" value="#{usuariosController.usuarios.nome}" required="true" requiredMessage="Nome obrigatorio">
+					<f:ajax event ="blur" render="msg"/>
+				</h:inputText>
+			</div>
+	
+			<div class="form-group col-md-6">
+			
+				<h:outputText value="Pontuação" for="pontuacao"/><font color="red">*</font>
+				<h:inputText class="form-control" id="pontuacao" value="#{usuariosController.usuarios.pontuacao}"
+				 required="true" requiredMessage="Pontuação obrigatorio" validatorMessage="Digite apenas números">
+						<f:passThroughAttribute name="type" value="number"></f:passThroughAttribute>
+						<f:passThroughAttribute name="min" value="0"></f:passThroughAttribute>
+					<f:ajax event ="blur" render="msg"/>
+				</h:inputText>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<h:outputText value="CPF" for="cpf"/><font color="red">*</font>
+				<h:inputText class="form-control" id="cpf" value="#{usuariosController.usuarios.cpf}" required="true" 
+				requiredMessage="CPF obrigatorio" validatorMessage="Digite apenas números">
+						<f:passThroughAttribute name="type" value="number"></f:passThroughAttribute>
+					<f:ajax event ="blur" render="msg"/>
+				</h:inputText>
+			</div>
+				<div class="form-row">
+			<div class="form-group col-md-6">
+		
+				<h:outputText value="Senha" for="senha"/><font color="red">*</font>
+				<h:inputText class="form-control" id="senha" value="#{usuariosController.usuarios.senha}" required="true" requiredMessage="Senha obrigatoria">
+					<f:ajax event ="blur" render="msg"/>
+				</h:inputText>
+			</div>
+			</div>
+			<div class="form-group col-md-6">
+			
+				<h:outputText value="Telefone" for="telefone"/><font color="red">*</font>
+				<h:inputText class="form-control" id="telefone" value="#{usuariosController.usuarios.telefone}"
+				 required="true" requiredMessage="Telefone obrigatorio" validatorMessage="Digite apenas números">
+						<f:passThroughAttribute name="type" value="number"></f:passThroughAttribute>
+						<f:passThroughAttribute name="min" value="0"></f:passThroughAttribute>
+					<f:ajax event ="blur" render="msg"/>
+				</h:inputText>
+			</div>
+		</div>
+		<H4>Endereço:</H4>
+		<div class="form-row">
+			<div class="form-group col-md-3">
+				<h:outputText value="Rua" for="rua"/><font color="red">*</font>
+				<h:inputText class="form-control" id="rua" value="#{usuariosController.usuarios.rua}" required="true" requiredMessage="Rua obrigatoria">
+					<f:ajax event ="blur" render="msg"/>
+				</h:inputText>
+			</div>
+			<div class="form-group col-md-3">
+				<h:outputText value="Número" for="num"/><font color="red">*</font>
+				<h:inputText class="form-control" id="num" value="#{usuariosController.usuarios.num}" required="true"
+				 requiredMessage="Número obrigatorio" validatorMessage="Número deve ser positivo">
+						<f:passThroughAttribute name="type" value="number"></f:passThroughAttribute>
+						<f:passThroughAttribute name="min" value="0"></f:passThroughAttribute>
+					<f:ajax event ="blur" render="msg"/>
+				</h:inputText>
+			</div>
+			<div class="form-group col-md-3">
+				<h:outputText value="Bairro" for="bairro"/><font color="red">*</font>
+				<h:inputText class="form-control" id="bairro" value="#{usuariosController.usuarios.bairro}" required="true" requiredMessage="Bairro obrigatorio">
+					<f:ajax event ="blur" render="msg"/>
+				</h:inputText>
+			</div>
+		</div>
+		
+	
+		<h:commandButton value="Gravar" class="btn btn-primary" action="#{usuariosController.gravar}">
+			<f:ajax execute="nome pontuacao cpf telefone rua numero bairro " render="@form :formusuarios:tabelausuarios msg"/>
+		</h:commandButton>
+		</div>
+	</h:form>
+	<div>
+	<h:form id="formusuarios">
+		<h:dataTable class="table table-striped mt-5" value="#{usuariosController.todosUsuarios}"
+		var="usuarios" id="tabelausuarios">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{usuarios.nome}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Senha</f:facet>
+				<h:outputText value="#{usuarios.senha}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">CPF</f:facet>
+				<h:outputText value="#{usuarios.cpf}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Telefone</f:facet>
+				<h:outputText value="#{usuarios.telefone}"/>
+			</h:column>
+					<h:column>
+				<f:facet name="header">Pontuação</f:facet>
+				<h:outputText value="#{usuarios.pontuacao}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Alterar</f:facet>
+				<h:commandButton value="altera" class="btn btn-primary" action="#{usuariosController.carregar(usuarios)}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Remover</f:facet>
+				<h:commandButton value="remove" class="btn btn-danger" action="#{usuariosController.remover(usuarios)}"/>
+			</h:column>
+		</h:dataTable>
+	</h:form> 
+
+</div>
+
+</ui:define>
+</ui:composition>
+</html>

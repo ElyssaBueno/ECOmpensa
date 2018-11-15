@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://xmlns.jcp.org/jsf/html"
+ xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+ xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="_templatev.xhtml">
+	<ui:define name="titulo_pagina">Pontuação</ui:define>
+
+
+<ui:define name="titulo">Pontuação</ui:define>
+
+<ui:define name="conteudo">
+	<h:form>
+		<h:messages id="msg" class="alert alert-danger"/>
+		<div>
+		<legend>Pontuação do participante</legend>
+
+				
+		<div class="form-row">
+				<div class="form-group col-md-6 mt-3">
+				<h:outputLabel value="CPF do participante" for="cpf"/><font color="red">*</font>
+				<h:inputText class="form-control" id="cpf" value="#{usuariosController.cpf}"/>
+			</div>
+				<div class="form-group col-md-1 mt-5">
+				<h:commandButton value="Buscar" class="btn btn-outline-primary" action="#{usuariosController.todospontuacao}">
+						<f:ajax execute="cpf" render="@form"/>
+					</h:commandButton>
+				</div>
+		
+		</div>
+				
+		<div class="form-row">
+			<div class="form-group col-md-6">
+					<h:outputLabel value="Nome do participante: " for="nome"/>
+			<div class="form-group row-md-1">
+						<h:outputLabel id="nome" value="#{usuariosController.usuarios.nome}"/>
+					</div>
+			</div>		
+			<div class="form-group col-md-6">
+			
+			
+			<h:outputLabel value="Pontuação atual: " for="pontuacao"/>
+			<div class="form-group row-md-1">
+						<h:outputLabel id="pontuacao" value="#{usuariosController.usuarios.pontuacao}"/>
+					</div>
+		</div>
+		
+		<div class="form-group col-md-6">
+			<font color="red"><h:outputText value="Para decrementar a pontuação, escreva um símbolo de subtração( - ) antes do valor" /></font>
+				<h:outputLabel value="Variação da pontuação" for="valor"/><font color="red">*</font>
+				<h:inputText class="form-control" id="valor" value="#{usuariosController.valor}"/>
+		</div>
+		</div>
+		<div class="form-row">
+		<div class="form-group col-md-2">
+		<h:commandButton value="Atribuir pontuação" class="btn btn-success" action="#{usuariosController.atribuir}">
+			<f:ajax execute="valor pontuacao cpf nome" render="@form :formusuarios:tabelausuarioss msg"/>
+			</h:commandButton>
+		</div>
+		
+		
+		</div>
+	</div>
+		
+	</h:form> 
+			
+	<div>
+	<h:form id="formusuarios">
+		<h:dataTable class="table table-striped mt-5" value="#{usuariosController.todosUsuarios}"
+		var="usuarios" id="tabelausuarioss">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{usuarios.nome}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">CPF</f:facet>
+				<h:outputText value="#{usuarios.cpf}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Telefone</f:facet>
+				<h:outputText value="#{usuarios.telefone}"/>
+			</h:column>
+					<h:column>
+				<f:facet name="header">Pontuação</f:facet>
+				<h:outputText value="#{usuarios.pontuacao}"/>
+			</h:column>
+		</h:dataTable>
+	</h:form> 
+
+</div>
+
+</ui:define>
+</ui:composition>
+</html>
