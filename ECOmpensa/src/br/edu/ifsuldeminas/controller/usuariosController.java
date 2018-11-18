@@ -86,5 +86,11 @@ private Usuarios usuarios=new Usuarios();
 		valor=null;
 	}
 
+	public void descontar() {
+		usuarios.setPontuacao(usuarios.getPontuacao()-valor);
+		new DAO<Usuarios>(Usuarios.class).atualiza(usuarios);
+		usuarios = new Usuarios();
+		valor=null;
+	}
 
 }

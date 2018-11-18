@@ -7,13 +7,13 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="_templatev.xhtml">
-<ui:define name="titulo_pagina">Verficar valores dos recicláveis</ui:define>
+<ui:define name="titulo_pagina">Recicláveis</ui:define>
 
-
-	<ui:define name="titulo">Verficar valores dos recicláveis</ui:define>
 
 <ui:define name="conteudo">
 <div>
+
+<h1 style="font-family:impact;">Verficar valores dos recicláveis</h1>
 	<h:form id="formreciclaveis">
 		<h:dataTable class="table table-striped mt-5" value="#{reciclaveisController.todosReciclaveis}" var="reciclaveis" id="tabelareciclaveis">
 		<h:column>

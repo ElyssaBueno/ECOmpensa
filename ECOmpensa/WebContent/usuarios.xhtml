@@ -9,13 +9,12 @@
 	<ui:define name="titulo_pagina">Participantes</ui:define>
 
 
-<ui:define name="titulo">Participantes</ui:define>
-
 <ui:define name="conteudo">
 	<h:form>
 		<h:messages id="msg" class="alert alert-danger"/>
 		<div>
-		<legend>Dados do participante</legend>
+		<h1 style="font-family:impact;">Participantes</h1>
+	
 			
 		<div class="form-row">
 			<div class="form-group col-md-6">
@@ -46,7 +45,7 @@
 					<f:ajax event ="blur" render="msg"/>
 				</h:inputText>
 			</div>
-				<div class="form-row">
+				
 			<div class="form-group col-md-6">
 		
 				<h:outputText value="Senha" for="senha"/><font color="red">*</font>
@@ -54,7 +53,7 @@
 					<f:ajax event ="blur" render="msg"/>
 				</h:inputText>
 			</div>
-			</div>
+			
 			<div class="form-group col-md-6">
 			
 				<h:outputText value="Telefone" for="telefone"/><font color="red">*</font>

@@ -9,12 +9,11 @@
 	<ui:define name="titulo_pagina">Grupos</ui:define>
 
 
-<ui:define name="titulo">Grupos</ui:define>
-
 <ui:define name="conteudo">
 	<h:form>
 		<h:messages id="msg" class="alert alert-danger"/>
-			<legend>Dados do Grupos</legend>
+		<h1 style="font-family:impact;">Grupos</h1>
+			
 			<div class="form-group">	
 				<h:outputLabel value="Nome" for="nome" /><font color="red">*</font>
 				<h:inputText class="form-control" id="nome" value="#{gruposController.grupos.nome}" 
@@ -44,7 +43,7 @@
 					</div>
 				</div>
 				
-				<h:dataTable class="table table-striped mt-5" value="#{gruposController.funcionalidadessDoGrupos}"
+				<h:dataTable class="table table-striped mt-5" value="#{gruposController.funcionalidadesDoGrupos}"
 				var="funcionalidades">
 				
 				<h:column>
