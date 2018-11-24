@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://xmlns.jcp.org/jsf/html"
+ xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+ xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="_templatev.xhtml">
+	<ui:define name="titulo_pagina">Seu perfil</ui:define>
+
+
+<ui:define name="conteudo">
+	<h:form>
+		<h:messages id="msg" class="alert alert-danger"/>
+		<div>
+		<h1 style="font-family:impact;">Seu perfil</h1>
+	
+			<div class="card"/>
+ 			  <div class="card-header">
+ 			   Verifique seus dados pessoais e sua pontuação
+  			</div>
+ 			  <div class="card-body">
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<H3 class="card-text">Nome: </H3>
+				<H5 class="card-text">#{usuarioLogado.nome}</H5>
+			</div>
+			
+			<div class="form-group col-md-6">
+				<H3 class="card-text">Pontuação: </H3>
+				<H5 class="card-text">#{usuarioLogado.pontuacao}</H5>
+			</div>
+			<div class="form-group col-md-6">
+				<H5 class="card-text">CPF: </H5>
+				<p class="card-text">#{usuarioLogado.cpf}</p>
+			</div>
+			<div class="form-group col-md-6">
+				<H5 class="card-text">Telefone: </H5>
+				<p class="card-text">#{usuarioLogado.telefone}</p>
+			</div>
+			<div class="form-group col-md-6">
+				<H5 class="card-text">Rua: </H5>
+				<p class="card-text">#{usuarioLogado.rua}</p>
+			</div>
+			<div class="form-group col-md-6">
+				<H5 class="card-text">Bairro: </H5>
+				<p class="card-text">#{usuarioLogado.bairro}</p>
+			</div>
+			<div class="form-group col-md-6">
+				<H5 class="card-text">Número: </H5>
+				<p class="card-text">#{usuarioLogado.num}</p>
+			</div>
+			
+		</div>
+	</div>
+	</div>
+	
+	</h:form>
+
+
+</ui:define>
+</ui:composition>
+</html>

@@ -48,7 +48,11 @@
 		
 		<div class="form-group col-md-6">
 				<h:outputLabel value="Variação da pontuação" for="valor"/><font color="red">*</font>
-				<h:inputText class="form-control" id="valor" value="#{usuariosController.valor}"/>
+				<h:inputText class="form-control" id="valor" value="#{usuariosController.valor}" required="true" requiredMessage="Pontuação obrigatoria" validatorMessage="Digite apenas números">
+						<f:passThroughAttribute name="type" value="number"></f:passThroughAttribute>
+						<f:passThroughAttribute name="min" value="0"></f:passThroughAttribute>
+						<f:ajax event ="blur" render="msg"/>
+				</h:inputText>
 		</div>
 		</div>
 		<div class="form-row">

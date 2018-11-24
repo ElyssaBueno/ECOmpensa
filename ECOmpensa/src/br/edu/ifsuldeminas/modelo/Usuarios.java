@@ -1,5 +1,6 @@
 package br.edu.ifsuldeminas.modelo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,9 +13,9 @@ public class Usuarios {
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private Integer Id;
 		private String nome;
+		@Column(unique = true)
 		private String cpf;
 		private Integer pontuacao;
-		private Boolean funcionario;
 		private String senha;
 		@OneToOne
 		private Grupos grupo;
@@ -52,12 +53,7 @@ public class Usuarios {
 		public void setGrupo(Grupos grupo) {
 			this.grupo = grupo;
 		}
-		public Boolean getFuncionario() {
-			return funcionario;
-		}
-		public void setFuncionario(Boolean funcionario) {
-			this.funcionario = funcionario;
-		}
+
 		public String getSenha() {
 			return senha;
 		}

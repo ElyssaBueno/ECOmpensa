@@ -25,14 +25,14 @@ public class PontuacaoDAO {
 	public Usuarios buscarPorCpfESenha(String cpf, String senha) {
 		Usuarios usuario;
 		
-		String jpql = "SELECT DISTINCT f FROM Funcionario f "
+		String jpql = "SELECT DISTINCT f FROM Usuarios f "
 				+ "LEFT JOIN FETCH f.grupo g LEFT JOIN FETCH g.funcionalidades "
-				+ "WHERE f.usuario = :pCpf AND f.senha = :pSenha";
+				+ "WHERE f.cpf = :pCpf AND f.senha = :pSenha";
 				
 		EntityManager em = JPAUtil.getEntityManager();
 		TypedQuery<Usuarios> query = em.createQuery(jpql, Usuarios.class);
-		query.setParameter("pLogin", cpf);
-		query.setParameter("pSenha", Utils.toMD5(senha));
+		query.setParameter("pCpf", cpf);
+		query.setParameter("pSenha", senha);
 		
 		try {
 			usuario = query.getSingleResult();

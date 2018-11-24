@@ -32,7 +32,7 @@
 								<div class="form-group">
 									<h:outputLabel value="Login" for="login"/>
 									<h:inputText id="login" 
-									value="#{loginController.usuarios.usuarios}" 
+									value="#{loginController.usuario.cpf}" 
 									required="true" requiredMessage="Login obrigatório."
 									class="form-control"/>
 									<h:message for="login"/>
@@ -41,7 +41,7 @@
 								<div class="form-group">
 									<h:outputLabel value="Senha" for="senha"/>
 									<h:inputText id="senha" 
-									value="#{loginController.usuarios.senha}" 
+									value="#{loginController.usuario.senha}" 
 									required="true" requiredMessage="Senha obrigatória."
 									class="form-control">
 										<f:passThroughAttribute name="type" value="password"/>

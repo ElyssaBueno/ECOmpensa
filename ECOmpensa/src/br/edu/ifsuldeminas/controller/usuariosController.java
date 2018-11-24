@@ -7,6 +7,7 @@ import javax.faces.bean.ViewScoped;
 
 import br.edu.ifsuldeminas.dao.DAO;
 import br.edu.ifsuldeminas.dao.PontuacaoDAO;
+import br.edu.ifsuldeminas.modelo.Grupos;
 import br.edu.ifsuldeminas.modelo.Usuarios;
 
 @ManagedBean
@@ -16,7 +17,9 @@ private String cpf;
 private Integer id;
 private Integer pontuacao;
 private Integer valor;
+private Integer grupoId;
 private Usuarios usuarios=new Usuarios();
+
 	
 	public Usuarios getUsuarios() {
 		return usuarios;
@@ -49,6 +52,15 @@ private Usuarios usuarios=new Usuarios();
 
 	public void setPontuacao(Integer pontuacao) {
 		this.pontuacao = pontuacao;
+	}
+	
+
+	public Integer getGrupoId() {
+		return grupoId;
+	}
+
+	public void setGrupoId(Integer grupoId) {
+		this.grupoId = grupoId;
 	}
 
 	public void gravar(){
@@ -91,6 +103,9 @@ private Usuarios usuarios=new Usuarios();
 		new DAO<Usuarios>(Usuarios.class).atualiza(usuarios);
 		usuarios = new Usuarios();
 		valor=null;
+	}
+	public List<Grupos> getTodosGrupos() {
+		return new DAO<Grupos>(Grupos.class).listaTodos();
 	}
 
 }

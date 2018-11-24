@@ -17,13 +17,13 @@
 			<div class="form-row">
 				<div class="form-group col-md-6">
 				<h:outputLabel value="Nome" for="nome"/><font color="red">*</font>
-				<h:inputText class="form-control" id="nome" value="#{funcionalidadeController.funcionalidade.nome}" required="true" requiredMessage="Nome obrigatório">
+				<h:inputText class="form-control" id="nome" value="#{funcionalidadesController.funcionalidades.nome}" required="true" requiredMessage="Nome obrigatório">
 					<f:ajax event ="blur" render="msg"/>
 				</h:inputText>
 			</div>	
 			<div class="form-group col-md-6">
 					<h:outputLabel value="Página" for="pagina"/><font color="red">*</font>
-					<h:inputText class="form-control" id="pagina" value="#{funcionalidadeController.funcionalidade.pagina}"
+					<h:inputText class="form-control" id="pagina" value="#{funcionalidadesController.funcionalidades.pagina}"
 					required="true" requiredMessage="Página obrigatória">
 						<f:ajax event ="blur" render="msg"/>
 					</h:inputText>
@@ -31,7 +31,7 @@
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-4">
-					<h:commandButton class="btn btn-primary" value="Gravar" action="#{funcionalidadeController.gravar}"/>
+					<h:commandButton class="btn btn-primary" value="Gravar" action="#{funcionalidadesController.gravar}"/>
 				</div>
 			</div>
 		
@@ -39,7 +39,7 @@
 	</h:form>
 	
 	<h:form>
-		<h:dataTable  class="table table-striped mt-5" value="#{funcionalidadeController.todasFuncionalidades}" var="funcionalidade">
+		<h:dataTable  class="table table-striped mt-5" value="#{funcionalidadesController.todasFuncionalidades}" var="funcionalidade">
 			<h:column>
 				<f:facet name="header">Nome</f:facet>
 				<h:outputText value="#{funcionalidade.nome}"/>
@@ -52,12 +52,12 @@
 			
 			<h:column>
 				<f:facet name="header">Alterar</f:facet>
-				<h:commandButton value="altera" class="btn btn-primary" action="#{funcionalidadeController.carregar(funcionalidade)}"/>
+				<h:commandButton value="altera" class="btn btn-primary" action="#{funcionalidadesController.carregar(funcionalidade)}"/>
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">Remover</f:facet>
-				<h:commandButton value="remove" class="btn btn-danger" action="#{funcionalidadeController.remover(funcionalidade)}"/>
+				<h:commandButton value="remove" class="btn btn-danger" action="#{funcionalidadesController.remover(funcionalidade)}"/>
 			</h:column>
 		</h:dataTable>
 	</h:form>

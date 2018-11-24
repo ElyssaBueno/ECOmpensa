@@ -64,6 +64,13 @@
 					<f:ajax event ="blur" render="msg"/>
 				</h:inputText>
 			</div>
+			<div class="form-group col-md-6">
+			<h:outputLabel class="col-form-label" value="Selecione um Grupo" for="grupos"/><font color="red">*</font>
+			<h:selectOneMenu id="grupos" class="form-control" value="#{usuariosController.grupoId}" required="true" requiredMessage="Grupo obrigatório.">
+				<f:selectItem itemLabel="Selecionar" noSelectionOption="true"/>
+				<f:selectItems value="#{usuariosController.todosGrupos}" var="grupos" itemLabel="#{grupos.nome}" itemValue="#{grupos.id}"/> 
+			</h:selectOneMenu>
+			</div>
 		</div>
 		<H4>Endereço:</H4>
 		<div class="form-row">

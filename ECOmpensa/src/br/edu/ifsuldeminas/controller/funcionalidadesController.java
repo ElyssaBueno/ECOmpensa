@@ -29,7 +29,7 @@ private Funcionalidades funcionalidades = new Funcionalidades();
 		this.funcionalidades = new Funcionalidades();
 	}
 	
-	public List<Funcionalidades> getTodasFuncionalidadess(){
+	public List<Funcionalidades> getTodasFuncionalidades(){
 		return new DAO<Funcionalidades>(Funcionalidades.class).listaTodos();
 	}
 	
