@@ -54,7 +54,7 @@
 				</h:inputText>
 			</div>
 			
-			<div class="form-group col-md-6">
+			<div class="form-group col-md-6 mt-3">
 			
 				<h:outputText value="Telefone" for="telefone"/><font color="red">*</font>
 				<h:inputText class="form-control" id="telefone" value="#{usuariosController.usuarios.telefone}"
@@ -64,7 +64,7 @@
 					<f:ajax event ="blur" render="msg"/>
 				</h:inputText>
 			</div>
-			<div class="form-group col-md-6">
+			<div class="form-group col-md-6 mt-1">
 			<h:outputLabel class="col-form-label" value="Selecione um Grupo" for="grupos"/><font color="red">*</font>
 			<h:selectOneMenu id="grupos" class="form-control" value="#{usuariosController.grupoId}" required="true" requiredMessage="Grupo obrigatório.">
 				<f:selectItem itemLabel="Selecionar" noSelectionOption="true"/>
@@ -110,10 +110,6 @@
 			<h:column>
 				<f:facet name="header">Nome</f:facet>
 				<h:outputText value="#{usuarios.nome}"/>
-			</h:column>
-			<h:column>
-				<f:facet name="header">Senha</f:facet>
-				<h:outputText value="#{usuarios.senha}"/>
 			</h:column>
 			<h:column>
 				<f:facet name="header">CPF</f:facet>

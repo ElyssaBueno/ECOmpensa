@@ -26,11 +26,11 @@
 			<div class="row">
 				<div class="col-6 mx-auto">
 					<div class="card mt-5">
-						<div class="card-header bg-dark text-white">Login</div>
+						<div class="card-header bg-green text-dark">Efetue login com seu CPF e senha</div>
 						<div class="card-body">
 							<h:form>
 								<div class="form-group">
-									<h:outputLabel value="Login" for="login"/>
+									<h:outputLabel value="CPF" for="login"/>
 									<h:inputText id="login" 
 									value="#{loginController.usuario.cpf}" 
 									required="true" requiredMessage="Login obrigatório."
@@ -49,7 +49,7 @@
 									<h:message for="senha"/>
 								</div>
 								
-								<h:commandButton value="Login" class="btn btn-primary btn-block"
+								<h:commandButton value="Login" class="btn btn-success btn-block"
 								action="#{loginController.logar}" />
 							</h:form>		
 						</div>
