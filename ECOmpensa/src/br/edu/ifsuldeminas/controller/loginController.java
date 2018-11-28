@@ -27,10 +27,10 @@ private Usuarios usuario = new Usuarios();
 		FacesContext context = FacesContext.getCurrentInstance();
 		if(usuario!=null){ //logou
 			context.getExternalContext().getSessionMap().put("usuarioLogado", usuario);
-//			List<Funcionalidades> lista = usuario.getGrupo().getFuncionalidades();
-//			for(Funcionalidades f: lista){
-//				context.getExternalContext().getSessionMap().put(f.getPagina(), f);
-//			}
+		List<Funcionalidades> lista = usuario.getGrupo().getFuncionalidades();
+		for(Funcionalidades f: lista){
+			context.getExternalContext().getSessionMap().put(f.getPagina(), f);
+			}
 			return "index?faces-redirect=true";
 		}else{
 			context.getExternalContext().getFlash().setKeepMessages(true);

@@ -14,6 +14,8 @@
         <class>br.edu.ifsuldeminas.modelo.Usuarios</class>
         <class>br.edu.ifsuldeminas.modelo.Reciclaveis</class>
         <class>br.edu.ifsuldeminas.modelo.Produtos</class>
+        <class>br.edu.ifsuldeminas.modelo.Funcionalidades</class>
+        <class>br.edu.ifsuldeminas.modelo.Grupos</class>
 
         <properties>    
             <!-- Propriedades JDBC -->

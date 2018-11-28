@@ -26,6 +26,15 @@ public class Autorizador implements PhaseListener{
 	    if ("/login.xhtml".equals(nomePagina)) {
 	        return;
 	    }
+	    if ("/index.xhtml".equals(nomePagina)) {
+	        return;
+	    }
+	    if ("/verprodutos.xhtml".equals(nomePagina)) {
+	        return;
+	    }
+	    if ("/verreciclaveis.xhtml".equals(nomePagina)) {
+	        return;
+	    }
 
 	    // Obtém usuário da sessão
 	    Usuarios usuarioLogado = 

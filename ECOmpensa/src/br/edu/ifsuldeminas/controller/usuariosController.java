@@ -64,6 +64,8 @@ private Usuarios usuarios=new Usuarios();
 	}
 
 	public void gravar(){
+		Grupos g = new DAO<Grupos>(Grupos.class).listaPorId(this.grupoId);
+		this.usuarios.setGrupo(g);
 		if(this.usuarios.getId()==null){
 			new DAO<Usuarios>(Usuarios.class).adiciona(usuarios);
 		}
@@ -71,6 +73,7 @@ private Usuarios usuarios=new Usuarios();
 			new DAO<Usuarios>(Usuarios.class).atualiza(usuarios);
 		}
 		this.usuarios = new Usuarios();
+		this.grupoId = null;
 	}
 	
 	public void todospontuacao(){
